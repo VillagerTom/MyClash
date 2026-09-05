@@ -26,6 +26,7 @@ const ruleOptionsEnable = {
   FCM: true, // GoogleFCM服务
   YouTube: true, // YouTube视频平台
   Google: true, // Google服务
+  GitHub: true, // GitHub服务
   AI: true, // 国外AI服务
   Microsoft: true, // Microsoft服务
   Apple: true, // Apple服务
@@ -407,6 +408,20 @@ const serviceConfigs = [
     rules: ['RULE-SET,google,Google', 'RULE-SET,google_ip,Google,no-resolve'],
   },
   {
+    name: 'GitHub',
+    baseOption: selectBaseOption,
+    providers: {
+      github: {
+        ...ruleProviderCommonDomain,
+        url: 'https://fastly.jsdelivr.net/gh/appshubcc/bett-rules@meta/geo/geosite/github.mrs',
+        path: './ruleset/github.mrs',
+        'path-in-bundle': 'geo/geosite/github.mrs',
+      },
+    },
+    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/GitHub.png',
+    rules: ['RULE-SET,github,GitHub'],
+  },
+  {
     name: 'AI',
     baseOption: selectBaseOption,
     defaultSelected: '美国',
@@ -426,12 +441,6 @@ const serviceConfigs = [
     baseOption: selectBaseOption,
     direct: true,
     providers: {
-      github: {
-        ...ruleProviderCommonDomain,
-        url: 'https://fastly.jsdelivr.net/gh/appshubcc/bett-rules@meta/geo/geosite/github.mrs',
-        path: './ruleset/github.mrs',
-        'path-in-bundle': 'geo/geosite/github.mrs',
-      },
       microsoft: {
         ...ruleProviderCommonDomain,
         url: 'https://fastly.jsdelivr.net/gh/appshubcc/bett-rules@meta/geo/geosite/microsoft.mrs',
@@ -440,7 +449,7 @@ const serviceConfigs = [
       },
     },
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Microsoft.png',
-    rules: ['RULE-SET,github,默认代理', 'RULE-SET,microsoft,Microsoft'],
+    rules: ['RULE-SET,microsoft,Microsoft'],
   },
   {
     name: 'Apple',

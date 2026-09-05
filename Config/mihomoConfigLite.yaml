@@ -184,6 +184,11 @@ rule-providers:
     url: 'https://fastly.jsdelivr.net/gh/appshubcc/bett-rules@meta/geo/geoip/google.mrs'
     path: './ruleset/google_ip.mrs'
     path-in-bundle: 'geo/geoip/google.mrs'
+  github:
+    <<: *rule_providers_domain
+    url: 'https://fastly.jsdelivr.net/gh/appshubcc/bett-rules@meta/geo/geosite/github.mrs'
+    path: './ruleset/github.mrs'
+    path-in-bundle: 'geo/geosite/github.mrs'
   ai:
     <<: *rule_providers_domain
     url: 'https://fastly.jsdelivr.net/gh/appshubcc/bett-rules@meta/geo/geosite/category-ai-!cn.mrs'
@@ -355,6 +360,10 @@ proxy-groups:
     <<: [*group_common_select, *proxies_default]
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Google_Search.png'
 
+  - name: 'GitHub'
+    <<: [*group_common_select, *proxies_default]
+    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/GitHub.png'
+
   - name: 'AI'
     <<: [*group_common_select, *proxies_default]
     default-selected: '美国'
@@ -470,6 +479,7 @@ rules:
   # 代理规则
   - RULE-SET,google,Google
   - RULE-SET,google_ip,Google,no-resolve
+  - RULE-SET,github,GitHub
   - RULE-SET,ai,AI
   - RULE-SET,telegram,Telegram
   - RULE-SET,telegram_ip,Telegram,no-resolve

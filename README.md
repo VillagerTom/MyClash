@@ -120,6 +120,7 @@ https://raw.githubusercontent.com/AIsouler/MyClash/main/Config/mihomoConfigLite.
 - `FCM`
 - `YouTube`
 - `Google`
+- `GitHub`
 - `AI`
 - `Microsoft`
 - `Apple`

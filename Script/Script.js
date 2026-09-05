@@ -23,6 +23,7 @@ const ruleOptionsEnable = {
 
   // 以下为分流策略配置
   Google: true, // Google服务
+  GitHub: true, // GitHub服务
   AI: true, // 国外AI服务
   Telegram: true, // Telegram通讯软件
   Steam: true, // Steam游戏平台
@@ -332,6 +333,20 @@ const serviceConfigs = [
     },
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Google_Search.png',
     rules: ['RULE-SET,google,Google', 'RULE-SET,google_ip,Google,no-resolve'],
+  },
+  {
+    name: 'GitHub',
+    baseOption: selectBaseOption,
+    providers: {
+      github: {
+        ...ruleProviderCommonDomain,
+        url: 'https://fastly.jsdelivr.net/gh/appshubcc/bett-rules@meta/geo/geosite/github.mrs',
+        path: './ruleset/github.mrs',
+        'path-in-bundle': 'geo/geosite/github.mrs',
+      },
+    },
+    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/GitHub.png',
+    rules: ['RULE-SET,github,GitHub'],
   },
   {
     name: 'AI',
